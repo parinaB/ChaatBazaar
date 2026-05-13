@@ -247,51 +247,66 @@ function setupSearch() {
 
 function setupContactForm() {
   const form = document.getElementById("contact-form");
+  const formSuccess = document.getElementById("form-success");
 
-  const nameInput = form.querySelector("#name");
-  const emailInput = form.querySelector("#email");
+  const nameInput    = form.querySelector("#name");
+  const emailInput   = form.querySelector("#email");
   const messageInput = form.querySelector("#message");
 
-  const errorName = form.querySelector("#error-name");
-  const errorEmail = form.querySelector("#error-email");
+  const errorName    = form.querySelector("#error-name");
+  const errorEmail   = form.querySelector("#error-email");
   const errorMessage = form.querySelector("#error-message");
 
   form.addEventListener("submit", (e) => {
     e.preventDefault();
 
-    // Reset errors
-    errorName.textContent = "";
-    errorEmail.textContent = "";
+    // Clear previous errors and hide any success banner
+    errorName.textContent    = "";
+    errorEmail.textContent   = "";
     errorMessage.textContent = "";
+    formSuccess.style.display = "none";
+
+    const nameVal    = nameInput.value.trim();
+    const emailVal   = emailInput.value.trim();
+    const messageVal = messageInput.value.trim();
 
     let valid = true;
 
-    // Validate Name
-    if (nameInput.value.trim().length < 2) {
-      errorName.textContent = "Please enter a valid name (at least 2 characters).";
+    // Validate Name — empty check first, then length
+    if (nameVal === "") {
+      errorName.textContent = "Name is required.";
+      valid = false;
+    } else if (nameVal.length < 2) {
+      errorName.textContent = "Name must be at least 2 characters.";
       valid = false;
     }
 
-    // Validate Email (basic)
-    const emailVal = emailInput.value.trim();
-    if (!emailVal || !/\S+@\S+\.\S+/.test(emailVal)) {
+    // Validate Email — empty check first, then format
+    if (emailVal === "") {
+      errorEmail.textContent = "Email is required.";
+      valid = false;
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailVal)) {
       errorEmail.textContent = "Please enter a valid email address.";
       valid = false;
     }
 
-    // Validate Message
-    if (messageInput.value.trim().length < 10) {
-      errorMessage.textContent = "Message should be at least 10 characters.";
+    // Validate Message — empty check first, then length
+    if (messageVal === "") {
+      errorMessage.textContent = "Message is required.";
+      valid = false;
+    } else if (messageVal.length < 10) {
+      errorMessage.textContent = "Message must be at least 10 characters.";
       valid = false;
     }
 
     if (!valid) return;
 
-    // For demo: Just alert success
-    alert("Thank you for your message! We will get back to you soon.");
-
-    // Reset form
-    form.reset();
+    // Show inline success banner and reset form after 3 s
+    formSuccess.style.display = "block";
+    setTimeout(() => {
+      form.reset();
+      formSuccess.style.display = "none";
+    }, 3000);
   });
 }
 
