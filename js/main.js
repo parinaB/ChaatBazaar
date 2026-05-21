@@ -94,7 +94,7 @@ function createCard(item, highlightQuery = "") {
       <span class="price">${formatPrice(item.price)}</span>
       <div class="card-footer-actions">
         <button class="share-btn" aria-label="Share ${item.name}" title="Share via WhatsApp or other apps">
-          <i class="fas fa-share-alt"></i> Share
+          <i class="fas fa-share-alt"></i>
         </button>
         <button class="add-btn" aria-label="Add ${item.name} to cart">Add</button>
       </div>
