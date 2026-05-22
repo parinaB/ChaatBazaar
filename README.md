@@ -185,8 +185,7 @@ This project is licensed under the MIT License - see the [LICENSE](https://githu
 | **GitHub Profile** | [PatelHarsh2006](https://github.com/PatelHarsh2006) |
 | **Project Repository** | [ChaatBazar](https://github.com/PatelHarsh2006/ChaatBazaar) |
 
-
-
+<img src="https://capsule-render.vercel.app/api?type=rect&height=4&color=00000000" width="100%">
 
 <p align="center">
   <b>Don't forget to ⭐ star the repo if you like this project!</b>
