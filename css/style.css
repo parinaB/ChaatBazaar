@@ -776,6 +776,19 @@
 
     /* ===== Mobile Navbar Fix ===== */
 @media (max-width: 480px) {
+  .hero-content h1 {
+    font-size: 2rem;
+  }
+  .newsletter-form {
+    flex-direction: column;
+  }
+  .newsletter-form input,
+  .newsletter-form button {
+    width: 100%;
+  }
+  #cart-sidebar {
+    right: -100%;
+  }
 
   .header-inner {
     flex-direction: column;
@@ -974,7 +987,7 @@
   text-align: center;
   justify-content: center;
   cursor: default;
-  background: transparent !important;
+  background: transparent;
   padding: 1rem;
 }
 
@@ -1138,7 +1151,7 @@
 .checkbox-label {
   font-size: 0.95rem;
   font-weight: 600;
-  color: #5d4037 !important;
+  color: #5d4037;
 }
 
 .filter-actions {
